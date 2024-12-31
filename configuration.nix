@@ -6,8 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-	/etc/nixos/hardware-configuration.nix
+    [
+      # Include the results of the hardware scan.
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -89,12 +90,12 @@
     description = "Matt";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
   programs.firefox.enable = true;
- 
+
   programs.git.enable = true;
   programs.git.config = {
     user.name = "Matthew Carroll";
@@ -107,12 +108,13 @@
   environment.systemPackages = with pkgs; [
     bitwarden-desktop
     vscodium
+    nixpkgs-fmt
     gnomeExtensions.blur-my-shell
     aseprite
     obsidian
     nodejs
     pnpm
-];
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
